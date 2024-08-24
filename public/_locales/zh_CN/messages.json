@@ -1,0 +1,31 @@
+{
+  "lang": {
+    "message": "zh"
+  },
+  "name": {
+    "message": "Site History Express"
+  },
+  "description": {
+    "message": "快速访问当前网站上最近浏览过的页面。"
+  },
+  "action_default_title": {
+    "message": "Site History Express"
+  },
+  "untitled": {
+    "message": "无标题"
+  },
+  "filter_placeholder": {
+    "message": "在 $domain$ 内筛选",
+    "placeholders": {
+      "domain": {
+        "content": "$1"
+      }
+    }
+  },
+  "filter_global_placeholder": {
+    "message": "筛选历史记录"
+  },
+  "no_history": {
+    "message": "没有历史记录"
+  }
+}

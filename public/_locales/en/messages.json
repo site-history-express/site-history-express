@@ -1,0 +1,31 @@
+{
+  "lang": {
+    "message": "en"
+  },
+  "name": {
+    "message": "Site History Express"
+  },
+  "description": {
+    "message": "Quickly access recently visited pages on the current site."
+  },
+  "action_default_title": {
+    "message": "Site History Express"
+  },
+  "untitled": {
+    "message": "Untitled"
+  },
+  "filter_placeholder": {
+    "message": "Filter items on $domain$",
+    "placeholders": {
+      "domain": {
+        "content": "$1"
+      }
+    }
+  },
+  "filter_global_placeholder": {
+    "message": "Filter items"
+  },
+  "no_history": {
+    "message": "No history"
+  }
+}

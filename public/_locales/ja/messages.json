@@ -1,0 +1,31 @@
+{
+  "lang": {
+    "message": "ja"
+  },
+  "name": {
+    "message": "Site History Express"
+  },
+  "description": {
+    "message": "現在のウェブサイトで最近閲覧したページにすばやくアクセスします。"
+  },
+  "action_default_title": {
+    "message": "Site History Express"
+  },
+  "untitled": {
+    "message": "無題"
+  },
+  "filter_placeholder": {
+    "message": "$domain$ 内のアイテムをフィルタ",
+    "placeholders": {
+      "domain": {
+        "content": "$1"
+      }
+    }
+  },
+  "filter_global_placeholder": {
+    "message": "アイテムをフィルタ"
+  },
+  "no_history": {
+    "message": "履歴がありません"
+  }
+}

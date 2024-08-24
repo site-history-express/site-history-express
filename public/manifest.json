@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "version": "1.2.1",
+  "name": "__MSG_name__",
+  "description": "__MSG_description__",
+  "offline_enabled": true,
+  "default_locale": "en",
+  "background": {
+    "service_worker": "static/js/background.js"
+  },
+  "action": {
+    "default_title": "__MSG_action_default_title__",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "128": "assets/icon_128.png"
+  },
+  "permissions": ["tabs", "history", "storage", "favicon"],
+  "web_accessible_resources": [
+    {
+      "resources": ["_favicon/*"],
+      "matches": ["<all_urls>"],
+      "extension_ids": ["*"]
+    }
+  ]
+}
