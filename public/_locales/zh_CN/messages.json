@@ -11,9 +11,6 @@
   "action_default_title": {
     "message": "Site History Express"
   },
-  "untitled": {
-    "message": "无标题"
-  },
   "filter_placeholder": {
     "message": "在 $domain$ 内筛选",
     "placeholders": {

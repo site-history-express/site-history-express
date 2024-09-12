@@ -57,7 +57,7 @@ export default function Item({ item, highlighted, selected, onClick, onMouseMidd
 }
 
 function getTitle(item: HistoryItem): string {
-  return item.title || new URL(item.url).pathname.slice(1) || i18n.untitled;
+  return item.title || new URL(item.url).pathname.slice(1) || mergeDomain(item.domain.sub, item.domain.main);
 }
 
 function getHoverText(item: HistoryItem, title: string): string {
@@ -65,11 +65,15 @@ function getHoverText(item: HistoryItem, title: string): string {
 }
 
 function getFormattedUrl(item: HistoryItem): string {
-  const domain = item.domain.sub ? `${item.domain.sub}.${item.domain.main}` : item.domain.main;
+  const domain = mergeDomain(item.domain.sub, item.domain.main);
   const tail = decodeURIComponent(
     item.url.slice(new URL(item.url).origin.length, item.url.endsWith('/') ? -1 : undefined),
   );
   return `${domain}${tail}`;
+}
+
+function mergeDomain(sub: string, main: string): string {
+  return sub ? `${sub}.${main}` : main;
 }
 
 function shouldAdjustTitleLeft(title: string): boolean {

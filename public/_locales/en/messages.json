@@ -11,9 +11,6 @@
   "action_default_title": {
     "message": "Site History Express"
   },
-  "untitled": {
-    "message": "Untitled"
-  },
   "filter_placeholder": {
     "message": "Filter items on $domain$",
     "placeholders": {

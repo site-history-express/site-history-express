@@ -11,9 +11,6 @@
   "action_default_title": {
     "message": "Site History Express"
   },
-  "untitled": {
-    "message": "無題"
-  },
   "filter_placeholder": {
     "message": "$domain$ 内のアイテムをフィルタ",
     "placeholders": {
