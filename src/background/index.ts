@@ -61,6 +61,7 @@ export async function getCurrentUrl(): Promise<string> {
 function filterDomainItems(allItems: HistoryItem[], currentUrl: string, maxCount?: number): DomainHistoryItems {
   const items: DomainHistoryItems = createDomainHistoryItems();
   const keySet = new Set<number>();
+  const urlSet = new Set<string>();
 
   if (!currentUrl.startsWith('http')) {
     for (const item of allItems) {
@@ -70,10 +71,11 @@ function filterDomainItems(allItems: HistoryItem[], currentUrl: string, maxCount
       if (item.url === currentUrl) {
         continue;
       }
-      if (keySet.has(item.key)) {
+      if (keySet.has(item.key) || urlSet.has(item.url)) {
         continue;
       }
       keySet.add(item.key);
+      urlSet.add(item.url);
       items.main.push(item);
     }
     return items;
@@ -87,10 +89,11 @@ function filterDomainItems(allItems: HistoryItem[], currentUrl: string, maxCount
     if (item.url === currentUrl) {
       continue;
     }
-    if (item.domain.main !== items.domain.main || keySet.has(item.key)) {
+    if (item.domain.main !== items.domain.main || keySet.has(item.key) || urlSet.has(item.url)) {
       continue;
     }
     keySet.add(item.key);
+    urlSet.add(item.url);
     if (!maxCount || items.main.length < maxCount) {
       items.main.push(item);
     }
