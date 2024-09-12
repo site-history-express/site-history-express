@@ -1,8 +1,6 @@
-# Site History Express
+![screenshot](screenshot.png)
 
 Site History Express is a handy browser extension that lets you quickly revisit pages you've recently viewed on the current website.
-
-![screenshot](screenshot.png)
 
 ## Install
 
