@@ -50,26 +50,38 @@ export default function Item({ item, highlighted, selected, onClick, onMouseMidd
         >
           {title}
         </div>
-        <div className='truncate opacity-50 mt-[2px]'>{formattedUrl}</div>
+        <div className='flex gap-2 opacity-50 mt-[2px]'>
+          <div className='flex-auto w-0 truncate'>{formattedUrl}</div>
+        </div>
       </div>
     </div>
   );
 }
 
 function getTitle(item: HistoryItem): string {
-  return item.title || new URL(item.url).pathname.slice(1) || mergeDomain(item.domain.sub, item.domain.main);
+  return (
+    item.title || decodeUrlTail(new URL(item.url).pathname.slice(1)) || mergeDomain(item.domain.sub, item.domain.main)
+  );
 }
 
 function getHoverText(item: HistoryItem, title: string): string {
-  return `${getTitle(item)}\n\n${item.url}\n\n${dayjs(item.time).fromNow()}`;
+  const time = `${dayjs(item.time).fromNow()} (${dayjs(item.time).format('YYYY-MM-DD HH:mm:ss')})`;
+  return `${getTitle(item)}\n\n${item.url}\n\n${time}`;
 }
 
 function getFormattedUrl(item: HistoryItem): string {
   const domain = mergeDomain(item.domain.sub, item.domain.main);
-  const tail = decodeURIComponent(
-    item.url.slice(new URL(item.url).origin.length, item.url.endsWith('/') ? -1 : undefined),
-  );
-  return `${domain}${tail}`;
+  const tail = item.url.slice(new URL(item.url).origin.length, item.url.endsWith('/') ? -1 : undefined);
+  const decodedTail = decodeUrlTail(tail);
+  return `${domain}${decodedTail}`;
+}
+
+function decodeUrlTail(tail: string): string {
+  try {
+    return decodeURIComponent(tail);
+  } catch (err) {
+    return tail;
+  }
 }
 
 function mergeDomain(sub: string, main: string): string {
