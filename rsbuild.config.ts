@@ -1,8 +1,6 @@
 import { defineConfig } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
 
-const isProd = process.env.NODE_ENV === 'production';
-
 export default defineConfig({
   dev: {
     client: {
@@ -10,7 +8,7 @@ export default defineConfig({
       port: 3000,
       protocol: 'ws',
     },
-    writeToDisk: (file) => !file.includes('.hot-update.'),
+    writeToDisk: true,
   },
   server: {
     publicDir: {
